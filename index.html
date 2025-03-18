@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>GigSpark 2K25 - Tech Symposium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+    <style>
+ .glow-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #ff0080, #00bfff, #00ff00, #ffcc00);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.5), 
+                        0 0 30px rgba(0, 191, 255, 0.5), 
+                        0 0 40px rgba(0, 255, 0, 0.5),
+                        0 0 10px rgba(255, 0, 128, 0.5), 
+                        0 0 20px rgba(0, 191, 255, 0.5), 
+                        0 0 30px rgba(0, 255, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .glow-button:hover {
+            transform: scale(1.05);
+            animation: pulse 1.5s infinite; /* Add pulse animation on hover */
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 
+                            0 0 20px rgba(0, 191, 255, 0.5), 
+                            0 0 30px rgba(0, 255, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 0, 128, 1), 
+                            0 0 30px rgba(0, 191, 255, 1), 
+                            0 0 40px rgba(0, 255, 0, 1);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 
+                            0 0 20px rgba(0, 191, 255, 0.5), 
+                            0 0 30px rgba(0, 255, 0, 0.5);
+            }
+        }
+        img {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Hover effect for logo */
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Highlighted text effect */
+.text-yellow-400, .text-blue-400, .text-green-400 {
+    transition: color 0.3s ease;
+}
+.arrow {
+        display: inline-block;
+        font-size: 18px;
+        color: #fff;
+        margin-left: 2px;
+        animation: glow 1.2s infinite alternate;
+    }
+
+    .arrow:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .arrow:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .arrow:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes glow {
+        0% {
+            text-shadow: 0 0 5px #fff, 0 0 10px #eb9b06, 0 0 15px #e8082e;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            text-shadow: 0 0 10px #fff, 0 0 20px #eb9b06, 0 0 30px #e8082e;
+            opacity: 0.7;
+            transform: translateX(5px);
+        }
+    }
+    /* Overlay popup container */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    /* Hidden by default */
+    .hidden {
+      display: none;
+    }
+    /* Popup content styling with pop-in animation */
+    .popup-content {
+      position: relative;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      overflow: hidden;
+      animation: popIn 0.6s ease;
+    }
+    @keyframes popIn {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    /* Splash/confetti style (small circles) */
+    .splash {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff4081;
+      border-radius: 50%;
+      opacity: 0;
+      animation: splashAnim 1.5s ease-out forwards;
+    }
+    @keyframes splashAnim {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--x), var(--y)) scale(0.5);
+        opacity: 0;
+      }
+    }
+    .card {
+      display: block;
+      width: 150px; /* Adjust as needed */
+      height: auto; /* Maintains aspect ratio */
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8)); /* Golden glow */
+    }
+
+    </style>
+    
+    <script>
+        // Function to limit checkbox selections to 2
+        function limitCheckboxes(checkbox) {
+          const checkboxes = document.querySelectorAll('input[name="Selected Events[]"]:checked');
+          if (checkboxes.length > 2) {
+            checkbox.checked = false;
+            alert('You can select a maximum of two events.');
+          }
+        }
+      </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="bg-gradient-to-r from-gray-900 to-gray-700 text-white text-center py-4 border-b border-gray-600 shadow-lg">
+        <div class="flex items-center justify-center space-x-4">
+            <img src="sgc.png" class="h-24 w-auto drop-shadow-md transition-transform duration-300 ease-in-out hover:scale-105"> <!-- Soft shadow and smooth hover effect -->
+            <div class="text-left">
+                <h1 class="text-2xl font-extrabold text-white">Saradha Gangadharan College, Puducherry</h1>
+                <p class="text-sm text-gray-300">
+                    (A Unit of Sri Saradha Gangadharan Educational Trust) <br>
+                    Accredited with <span class="font-semibold text-yellow-400">B++ grade</span> by NAAC (CGPA 2.92) in Second Cycle,  
+                    BCA & BBA Recognized by the AICTE <br>
+                    Affiliated to <span class="font-semibold text-blue-400">Pondicherry University</span> | Recognized by UGC under Section 2(f) of the UGC Act 1956 as a PG Institution <br>
+                    An <span class="font-semibold text-green-400">ISO 9001:2015</span> certified Institution.
+                </p>
+            </div>
+            
+                <img class="card" src="sj_logog.png" alt="College Logo">
+           
+    </div>
+    
+    <nav class="bg-white shadow w-full z-50">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16"> <!-- Reduced height -->
+                <div class="flex items-center space-x-8"> <!-- Reduced spacing -->
+                    <img class="h-10 w-auto" src="logo.png" alt="GigSpark Logo"> <!-- Adjusted logo size -->
+                    <div class="hidden sm:flex sm:space-x-8">
+                        <a href="#home" class="border-b-2 border-transparent text-base font-medium text-gray-700 hover:text-indigo-600 hover:border-indigo-600 transition duration-300">Home</a>
+                        <a href="#overview" class="border-b-2 border-transparent text-base font-medium text-gray-500 hover:text-indigo-600 hover:border-indigo-600 transition duration-300">About</a>
+                        <a href="#events" class="border-b-2 border-transparent text-base font-medium text-gray-500 hover:text-indigo-600 hover:border-indigo-600 transition duration-300">Events</a>
+                        <a href="#register" class="border-b-2 border-transparent text-base font-medium text-gray-500 hover:text-indigo-600 hover:border-indigo-600 transition duration-300">Register</a>
+                        <a href="#contact" class="border-b-2 border-transparent text-base font-medium text-gray-500 hover:text-indigo-600 hover:border-indigo-600 transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="#register">
+                        <button class="rounded-full bg-indigo-600 text-white px-5 py-2 text-base font-medium hover:bg-indigo-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Register Now</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <main>
+        <section id="home" class="pt-0.5">
+            <div class="relative bg-gray-900 overflow-hidden">
+                <div class="max-w-8xl mx-auto">
+                    <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-1/2 lg:pb-28 xl:pb-32">
+                        <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                            <div class="sm:text-center lg:text-left">
+                                <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                                    <span class="block">Welcome to</span>
+                                    <span style="
+                                        background: linear-gradient(to right, #eb9b06, #e8082e);
+                                        -webkit-background-clip: text;
+                                        -webkit-text-fill-color: transparent;
+                                        font-size: 48px;
+                                        font-weight: bold;">
+                                        GigSpark 2K25
+                                    </span>
+                                </h1>
+                                <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                    Join us for the biggest tech symposium of the year. Experience innovation, creativity, and technology like never before.
+                                </p>
+                                <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                    <div class="rounded-md shadow">
+                                        <a href="#register" class="!rounded-button w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-custom hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                                            Register Now
+                                        </a>
+                                    </div>
+                                    <div class="mt-3 sm:mt-0 sm:ml-3">
+                                        <a href="#events" class="!rounded-button w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-custom bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                            View Events
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+        
+                <!-- Image Slider -->
+                <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 overflow-hidden relative">
+                    <div id="sliderContainer" class="relative w-full h-full overflow-hidden">
+                        <div id="slider" class="flex transition-transform duration-700 ease-in-out w-full h-full">
+                            <img src="sgcc.png" class="w-full h-full object-cover" alt="GigSpark">
+                            <img src="gs.png" class="w-full h-full object-cover" alt="SGCC">
+                        </div>
+                    </div>
+        
+                    <!-- Previous and Next Buttons -->
+                    <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full hover:bg-opacity-75" onclick="prevSlide()">&#10094;</button>
+                    <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full hover:bg-opacity-75" onclick="nextSlide()">&#10095;</button>
+        
+                    <!-- Dots for Navigation -->
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="goToSlide(0)"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="goToSlide(1)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            let currentIndex = 0;
+            const slides = document.querySelectorAll('#slider img');
+            const dots = document.querySelectorAll('.dot');
+            const slider = document.getElementById('slider');
+            const totalSlides = slides.length;
+        
+            function showSlide(index) {
+                if (index >= totalSlides) currentIndex = 0;
+                if (index < 0) currentIndex = totalSlides - 1;
+        
+                // Slide transition
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+                // Update active dot
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-gray-700', i === currentIndex);
+                    dot.classList.toggle('bg-gray-400', i !== currentIndex);
+                });
+            }
+        
+            function nextSlide() {
+                currentIndex++;
+                showSlide(currentIndex);
+            }
+        
+            function prevSlide() {
+                currentIndex--;
+                showSlide(currentIndex);
+            }
+        
+            function goToSlide(index) {
+                currentIndex = index;
+                showSlide(currentIndex);
+            }
+        
+            // Auto slide every 4 seconds
+            setInterval(nextSlide, 4000);
+        
+            // Ensure slider fits the container size dynamically
+            function resizeSlider() {
+                const container = document.getElementById('sliderContainer');
+                const height = container.clientHeight;
+                slides.forEach(slide => {
+                    slide.style.height = `${height}px`;
+                });
+            }
+        
+            window.addEventListener('resize', resizeSlider);
+            window.addEventListener('load', () => {
+                resizeSlider();
+                showSlide(currentIndex);
+            });
+            // Function to show animated success popup with splash/confetti effect
+    function showSuccessPopup() {
+      const popup = document.getElementById("popup");
+      popup.classList.remove("hidden");
+
+      // Create multiple splash elements for confetti-like animation
+      const popupContent = document.querySelector(".popup-content");
+      for (let i = 0; i < 20; i++) {
+        const splash = document.createElement("div");
+        splash.classList.add("splash");
+        // Random offsets for a burst effect (adjust range as needed)
+        const x = (Math.random() - 0.5) * 200;
+        const y = (Math.random() - 0.5) * 200;
+        splash.style.setProperty("--x", x + "px");
+        splash.style.setProperty("--y", y + "px");
+        popupContent.appendChild(splash);
+      }
+
+      // Hide the popup after 3 seconds and clean up splash elements
+      setTimeout(() => {
+        popup.classList.add("hidden");
+        document.querySelectorAll(".splash").forEach(s => s.remove());
+      }, 3000);
+    }
+
+    // Intercept form submission using fetch (AJAX)
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("registrationForm");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((result) => {
+            // Show fancy animated success popup
+            showSuccessPopup();
+            form.reset(); // Reset form fields after successful submission
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    });
+        </script>
+        
+        <!-- New Section - Overview -->
+    <section id="overview" class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900">Why GigSpark 2K25?</h2>
+            <p class="mt-4 text-lg text-gray-700">
+                Historically, a learner’s educational prospects were constrained by the resources available within the confines of a classroom. Fortunately, breakthroughs in technologies have unveiled new prospects for students. Technology is a good way to help students bolster the necessary skill set to be successful in higher-level college courses while also preparing them for an ever-changing workforce.
+            </p>
+            <p class="mt-4 text-lg text-gray-700">
+                Gig Spark2K25 is one such intercollegiate meet that brings students into the Next Generation through innovation and modern technology and nurtures them with the latest and emerging technologies for creating a bright future.
+            </p>
+        </div>
+    </section>
+
+    <!-- New Section - Technical Meet Details -->
+    <section id="technical-meet" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900">Technical Meet Highlights</h2>
+            <p class="mt-4 text-lg text-gray-700">
+                The technical meet fosters critical thinking by exposing students to diverse perspectives and practical challenges in their desired field, preparing them for future problem-solving and career decision-making.
+            </p>
+            <p class="mt-4 text-lg text-gray-700">
+                The deeper and more refined the students’ skills and knowledge are, the better positioned they will be to tackle the challenges that lie ahead.
+            </p>
+        </div>
+    </section>
+
+    <!-- New Section - Event List -->
+    <section id="events-list" class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl font-extrabold text-gray-900">Gig Spark 2K25 Events</h2>
+          <p class="mt-4 text-lg text-gray-700">
+            The chest of Gig Spark 2K25 consists of <span class="text-4xl font-bold">09</span> exciting events:
+          </p>
+          <ul class="mt-4 text-lg text-gray-700 list-disc list-inside text-left inline-block">
+            <li>Techathon</li>
+            <li>Innovation Café</li>
+            <li>Creativity Crusaders</li>
+            <li>Code Sprint</li>
+            <li>Mind Odyssey</li>
+            <li>AD Architect</li>
+            <li>Idea Pitching</li>
+            <li>Reel Inspiration</li>
+            <li>Smooth Cuts & Cinematic Moments</li>
+          </ul>
+        </div>
+      </section>
+      
+
+    <!-- New Section - Techathon Details -->
+    <section id="techathon" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900">Techkathon - April 3rd</h2>
+            <p class="mt-4 text-lg text-gray-700">
+                The Techathon scheduled for April 3rd is a fantastic opportunity for students to showcase their innovation and problem-solving skills. Developing a new idea and solution in just 10 hours will push participants to think creatively and work efficiently under pressure.
+            </p>
+            <p class="mt-4 text-lg text-gray-700">
+                It must be thrilling for students to collaborate, brainstorm, and bring their concepts to life within such a tight timeline. This kind of event not only encourages technical skills but also teamwork, time management, and adaptability.
+            </p>
+        </div>
+        <div class="mt-8 flex justify-center">
+            <a href="https://forms.gle/skbbxAXt5ns7wrHeA" target="_blank" class="relative inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-lg hover:from-red-500 hover:to-orange-500 transition duration-300">
+                <span class="mr-2">Register for Techathon</span>
+                <span class="flex">
+                    <span class="arrow">></span>
+                    <span class="arrow">></span>
+                    <span class="arrow">></span>
+                </span>
+            </a>
+        </div>
+    </section>
+</main>
+
+        <section id="countdown" class="py-12 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        Event Starts In
+                    </h2>                    <div class="mt-8 grid grid-cols-4 gap-5 max-w-2xl mx-auto">
+                        <div class="bg-gray-50 rounded-lg p-4">                            <span id="days" class="block text-4xl font-bold text-custom">00</span>
+                            <span class="text-gray-500">Days</span>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <span id="hours" class="block text-4xl font-bold text-custom">00</span>
+                            <span class="text-gray-500">Hours</span>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">                            <span id="minutes" class="block text-4xl font-bold text-custom">00</span>
+                            <span class="text-gray-500">Minutes</span>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <span id="seconds" class="block text-4xl font-bold text-custom">00</span>
+                            <span class="text-gray-500">Seconds</span>
+                        </div>
+                    </div>                </div>
+            </div>
+        </section>
+
+        <section id="events" class="py-12 bg-gray-50">
+            <Center><a href="event_details.html" class="glow-button" target="_blank">View Events</a></Center>
+        </section>
+
+        <section id="register" class="py-12 bg-white">
+            <div class="max-w-md mx-auto bg-white p-6 shadow-md rounded">
+                <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">Register Now</h2>
+                <p class="text-center text-gray-800">Registration Fee: ₹200 per participant</p><br>
+                <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbyABbET3lL4PflYiCYFq2SrTveUTF77ycGvfGROkoqjURcR46raVhvmJo9WABsAwtUu/exec" method="POST">
+                  <div class="mb-4">
+                    <label class="block text-gray-700" for="name">Full Name</label>
+                    <input class="w-full border p-2 rounded text-gray-800 type="text" id="name" name="Full Name" required>
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-gray-700" for="department">Department</label>
+                    <input class="w-full border p-2 rounded text-gray-800" type="text" id="department" name="Department" required>
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-gray-700" for="year">Year</label>
+                    <input class="w-full border p-2 rounded text-gray-800" type="text" id="year" name="Year" required>
+                  </div>      
+                  <div class="mb-4">
+                    <label class="block text-gray-700" for="college">College Name</label>
+                    <input class="w-full border p-2 rounded text-gray-800" type="text" id="college" name="College Name" required>
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-gray-700" for="email">Email Address</label>
+                    <input class="w-full border p-2 rounded text-gray-800" type="email" id="email" name="Email Address" required>
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-gray-700" for="phone">Contact Number</label>
+                    <input class="w-full border p-2 rounded text-gray-800" type="tel" id="phone" name="Contact Number" required>
+                  </div>
+                  <!-- Checkbox group: note the name uses [] so the browser sends an array -->
+                  <div class="mb-4">
+                    <label class="block text-gray-800">Select Events (Max 2)</label>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Mind Odyssey" id="event1" onclick="limitCheckboxes(this)">
+                        <label for="event1" class="ml-2 text-gray-800">Mind Odyssey</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Paper Presentation" id="event2" onclick="limitCheckboxes(this)">
+                        <label for="event2" class="ml-2 text-gray-800">Paper Presentation</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Creativity Crusaders" id="event3" onclick="limitCheckboxes(this)">
+                        <label for="event3" class="ml-2 text-gray-800">Creativity Crusaders</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Code Sprint" id="event4" onclick="limitCheckboxes(this)">
+                        <label for="event4" class="ml-2 text-gray-800">Code Sprint</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Ad Architect" id="event5" onclick="limitCheckboxes(this)">
+                        <label for="event5" class="ml-2 text-gray-800">Ad Architect</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Idea Pitching" id="event6" onclick="limitCheckboxes(this)">
+                        <label for="event6" class="ml-2 text-gray-800">Idea Pitching</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Reels Inspiration" id="event7" onclick="limitCheckboxes(this)">
+                        <label for="event7" class="ml-2 text-gray-800">Reels Inspiration</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Smooth Cuts" id="event8" onclick="limitCheckboxes(this)">
+                        <label for="event8" class="ml-2 text-gray-800">Smooth Cuts and Cinematic Moments</label>
+                    </div>
+                </div>
+                
+                
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700">GPay QR Code</label>
+                    <img src="gs.png" alt="GPay QR Code" class="mt-4 border border-gray-300 rounded" style="max-width: 100%; height: auto;">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-gray-700" for="upi">UPI ID</label>
+                    <input class="w-full border p-2 rounded text-gray-800" type="text" id="upi" name="UPI ID" required>
+                  </div>
+                  <div class="text-center">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" type="submit">Submit Registration</button>
+                  </div>
+                </form>
+                <div id="popup" class="popup-overlay hidden">
+                    <div class="popup-content">
+                      <i class="fa-solid fa-check-circle text-green-500" style="font-size: 80px;"></i>
+                      <h2 class="mt-4 text-3xl font-bold text-green-600">Registration Successful!</h2>
+                    </div>
+                  </div>
+              </div>
+        </section>
+
+        <section id="contact" class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">                <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        Contact Us
+                    </h2>                    <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                        Get in touch with our event coordinators
+                    </p>                </div>
+
+                <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
+                    <div class="bg-white overflow-hidden shadow rounded-lg">                        <div class="px-4 py-5 sm:p-6">
+                            <h3 class="text-lg font-medium text-gray-900">Event Convenor</h3>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">Mrs. S. Savitha</p>
+                                <p class="text-base text-gray-500">Associate Professor</p>
+                                <p class="mt-2">                                    <a href="mailto:savithas@sgcpdy.com" class="text-custom hover:text-indigo-700">
+                                        <i class="fas fa-envelope mr-2"></i>savithas@sgcpdy.com
+                                    </a>
+                                </p>
+                                <p class="mt-2">                                    <a href="tel:9841374821" class="text-custom hover:text-indigo-700">
+                                        <i class="fas fa-phone mr-2"></i>+91 9841374821
+                                    </a>
+                                </p>
+                            </div>                        </div>
+                    </div>
+
+                    <div class="bg-white overflow-hidden shadow rounded-lg">                        <div class="px-4 py-5 sm:p-6">
+                            <h3 class="text-lg font-medium text-gray-900">Venue</h3>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    Saradha Gangadharan College<br>                                    Lake Road, Velrampet<br>
+                                    Puducherry
+                                </p>                                <div class="mt-4 aspect-w-16 aspect-h-9">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.8727664892563!2d79.80032947405651!3d11.913941888312607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361bebd34afc5%3A0x8640731bd2aea6fb!2sSARADHA%20GANGADHARAN%20COLLEGE!5e0!3m2!1sen!2sin!4v1742200992440!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                                </div>
+                            </div>
+                        </div>
+                    </div>                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <img class="h-8 w-auto" src="logo.png" alt="GigSpark Logo">                    <p class="mt-4 text-base text-gray-500">
+                        Empowering innovation through technology
+                    </p>                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Quick Links</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#home" class="text-base text-gray-500 hover:text-gray-900">Home</a></li>
+                        <li><a href="#about" class="text-base text-gray-500 hover:text-gray-900">About</a></li>
+                        <li><a href="#events" class="text-base text-gray-500 hover:text-gray-900">Events</a></li>
+                        <li><a href="#register" class="text-base text-gray-500 hover:text-gray-900">Register</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Connect With Us</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gray-500">                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500">                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500">                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500">                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>            </div>
+            <div class="mt-8 border-t border-gray-200 pt-8">
+                <p class="text-base text-gray-400 text-center">                    © 2024 GigSpark. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>        function updateCountdown() {
+            const eventDate = new Date('April 4, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+       
+       
+    </script></body>
+</html>
