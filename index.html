@@ -163,7 +163,54 @@ img:hover {
       height: auto; /* Maintains aspect ratio */
       filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8)); /* Golden glow */
     }
+/* Media query for mobile devices */
+@media (max-width: 640px) {
+        body {
+            font-size: 14px; /* Adjust base font size for mobile */
+        }
 
+        .glow-button {
+            padding: 10px 20px; /* Smaller padding for buttons */
+            font-size: 16px; /* Smaller font size for buttons */
+        }
+
+        h1 {
+            font-size: 24px; /* Smaller heading size */
+        }
+
+        h2 {
+            font-size: 20px; /* Smaller subheading size */
+        }
+
+        .text-yellow-400, .text-blue-400, .text-green-400 {
+            font-size: 14px; /* Adjust highlighted text size */
+        }
+
+        .card {
+            width: 100%; /* Make cards full width on mobile */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        nav .flex {
+            flex-direction: column; /* Stack navigation items vertically */
+            align-items: center; /* Center align items */
+        }
+
+        nav .hidden {
+            display: flex; /* Show hidden items on mobile */
+        }
+
+        /* Adjust other elements as needed */
+        .popup-content {
+            padding: 20px; /* Smaller padding for popup */
+        }
+
+        /* Adjust image sizes */
+        img {
+            max-width: 100%; /* Ensure images are responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+    }
     </style>
     
     <script>
@@ -545,12 +592,16 @@ img:hover {
                         <input type="checkbox" name="Selected Events[]" value="Smooth Cuts" id="event8" onclick="limitCheckboxes(this)">
                         <label for="event8" class="ml-2 text-gray-800">Smooth Cuts and Cinematic Moments</label>
                     </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" name="Selected Events[]" value="Innovation Cafe" id="event8" onclick="limitCheckboxes(this)">
+                        <label for="event9" class="ml-2 text-gray-800">Innovation-Cafe</label>
+                    </div>
                 </div>
                 
                 
                   <div>
                     <label class="block text-sm font-medium text-gray-700">GPay QR Code</label>
-                    <img src="gs.png" alt="GPay QR Code" class="mt-4 border border-gray-300 rounded" style="max-width: 100%; height: auto;">
+                    <img src="qr.jpg" alt="GPay QR Code" class="mt-4 border border-gray-300 rounded" style="max-width: 100%; height: auto;">
                   </div>
                   <div class="mb-4">
                     <label class="block text-gray-700" for="upi">UPI ID</label>
