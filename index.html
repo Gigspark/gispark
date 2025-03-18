@@ -165,52 +165,60 @@ img:hover {
     }
 /* Media query for mobile devices */
 @media (max-width: 640px) {
-        body {
-            font-size: 14px; /* Adjust base font size for mobile */
-        }
+            body {
+                font-size: 14px; /* Adjust base font size for mobile */
+            }
 
-        .glow-button {
-            padding: 10px 20px; /* Smaller padding for buttons */
-            font-size: 16px; /* Smaller font size for buttons */
-        }
+            .glow-button {
+                padding: 10px 15px; /* Smaller padding for buttons */
+                font-size: 16px; /* Smaller font size for buttons */
+            }
 
-        h1 {
-            font-size: 24px; /* Smaller heading size */
-        }
+            h1 {
+                font-size: 24px; /* Smaller heading size */
+            }
 
-        h2 {
-            font-size: 20px; /* Smaller subheading size */
-        }
+            h2 {
+                font-size: 20px; /* Smaller subheading size */
+            }
 
-        .text-yellow-400, .text-blue-400, .text-green-400 {
-            font-size: 14px; /* Adjust highlighted text size */
-        }
+            h3 {
+                font-size: 18px; /* Smaller sub-subheading size */
+            }
 
-        .card {
-            width: 100%; /* Make cards full width on mobile */
-            height: auto; /* Maintain aspect ratio */
-        }
+            .text-yellow-400, .text-blue-400, .text-green-400 {
+                font-size: 14px; /* Adjust highlighted text size */
+            }
 
-        nav .flex {
-            flex-direction: column; /* Stack navigation items vertically */
-            align-items: center; /* Center align items */
-        }
+            .card {
+                width: 100%; /* Make cards full width on mobile */
+                height: auto; /* Maintain aspect ratio */
+            }
 
-        nav .hidden {
-            display: flex; /* Show hidden items on mobile */
-        }
+            nav .flex {
+                flex-direction: column; /* Stack navigation items vertically */
+                align-items: center; /* Center align items */
+            }
 
-        /* Adjust other elements as needed */
-        .popup-content {
-            padding: 20px; /* Smaller padding for popup */
-        }
+            nav .hidden {
+                display: flex; /* Show hidden items on mobile */
+            }
 
-        /* Adjust image sizes */
-        img {
-            max-width: 100%; /* Ensure images are responsive */
-            height: auto; /* Maintain aspect ratio */
+            /* Adjust other elements as needed */
+            .popup-content {
+                padding: 20px; /* Smaller padding for popup */
+            }
+
+            /* Adjust layout for sections */
+            section {
+                padding: 20px 10px; /* Adjust padding for sections */
+            }
+
+            /* Countdown grid */
+            #countdown .grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+            }
         }
-    }
     </style>
     
     <script>
