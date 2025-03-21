@@ -413,28 +413,7 @@ img:hover {
       }, 3000);
     }
 
-    // Intercept form submission using fetch (AJAX)
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("registrationForm");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent default form submission
-
-        const formData = new FormData(form);
-        fetch(form.action, {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.text())
-          .then((result) => {
-            // Show fancy animated success popup
-            showSuccessPopup();
-            form.reset(); // Reset form fields after successful submission
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      });
-    });
+  
         </script>
         
         <!-- New Section - Overview -->
@@ -462,13 +441,58 @@ img:hover {
             </p>
         </div>
     </section>
-
+    <section class="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-8 animate-fadeIn">Event Highlights</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="relative group bg-white rounded-2xl shadow-lg p-6 overflow-hidden transition-all transform hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                    <div class="text-blue-600 mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Technical Events</h3>
+                    <p class="text-gray-600">Coding competitions, hackathons, technical paper presentations, and project exhibitions showcasing innovation.</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">Learn More</button>
+                    </div>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="relative group bg-white rounded-2xl shadow-lg p-6 overflow-hidden transition-all transform hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-red-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                    <div class="text-pink-600 mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Non-Technical Events</h3>
+                    <p class="text-gray-600">Quiz competitions, Reels, Ads, Video Editing</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="bg-pink-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-pink-700 transition">Explore</button>
+                    </div>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="relative group bg-white rounded-2xl shadow-lg p-6 overflow-hidden transition-all transform hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                    <div class="text-green-600 mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Interactive Stalls</h3>
+                    <p class="text-gray-600">Fun, Food, Accessories</p>
+                    <div class="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 transition">Discover</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- New Section - Event List -->
     <section id="events-list" class="bg-gray-100 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 class="text-3xl font-extrabold text-gray-900">Gig Spark 2K25 Events</h2>
           <p class="mt-4 text-lg text-gray-700">
-            The chest of Gig Spark 2K25 consists of <span class="text-4xl font-bold">09</span> exciting events:
+            The chest of Gig Spark 2K25 consists of <span class="text-4xl font-bold">09</span> exciting events(Technical and Non-Technical):
           </p>
           <ul class="mt-4 text-lg text-gray-700 list-disc list-inside text-left inline-block">
             <li>Techathon</li>
@@ -539,11 +563,11 @@ img:hover {
         <section id="register" class="py-12 bg-white">
             <div class="max-w-md mx-auto bg-white p-6 shadow-md rounded">
                 <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">Register Now</h2>
-                <p class="text-center text-gray-800">Registration Fee: ₹200 per participant</p><br>
-                <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbyABbET3lL4PflYiCYFq2SrTveUTF77ycGvfGROkoqjURcR46raVhvmJo9WABsAwtUu/exec" method="POST">
+                <p class="text-center text-gray-800 font-semibold text-lg">Registration Fee: ₹200 per participant<br><span class="text-sm text-gray-600">(Lunch and Snacks are Provided)</span></p><br>
+                <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbwclOlcCDvSOyDZM1MZbwqw_NMeST2B0WaaneCHxP0V_Y6lERVF61UjgP7qPqQHmnB-/exec" method="POST">
                   <div class="mb-4">
                     <label class="block text-gray-700" for="name">Full Name</label>
-                    <input class="w-full border p-2 rounded text-gray-800 type="text" id="name" name="Full Name" required>
+                    <input class="w-full border p-2 rounded text-gray-800" type="text" id="name" name="Full Name" required>
                   </div>
                   <div class="mb-4">
                     <label class="block text-gray-700" for="department">Department</label>
@@ -601,11 +625,19 @@ img:hover {
                         <label for="event8" class="ml-2 text-gray-800">Smooth Cuts and Cinematic Moments</label>
                     </div>
                     <div class="flex items-center">
-                        <input type="checkbox" name="Selected Events[]" value="Innovation Cafe" id="event8" onclick="limitCheckboxes(this)">
+                        <input type="checkbox" name="Selected Events[]" value="Innovation Cafe" id="event9" onclick="limitCheckboxes(this)">
                         <label for="event9" class="ml-2 text-gray-800">Innovation-Cafe</label>
                     </div>
                 </div>
-                
+                <!-- Lunch Requirement -->
+<div class="mb-4">
+    <label class="block text-gray-700" for="lunch">Lunch:</label>
+    <select class="w-full border p-2 rounded text-gray-800" id="lunch" name="Lunch Requirement" required>
+        <option value="" disabled selected>Select an option:</option>
+        <option value="Veg">Veg</option>
+        <option value="Non-Veg">Non-Veg</option>
+    </select>
+</div>
                 
                   <div>
                     <label class="block text-sm font-medium text-gray-700">GPay QR Code(UPI ID: rks.savi@okhdfcbank)</label>
@@ -620,15 +652,50 @@ img:hover {
                     <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" type="submit">Submit Registration</button>
                   </div>
                 </form>
-                <div id="popup" class="popup-overlay hidden">
+                <div id="successPopup" class="popup-overlay hidden">
                     <div class="popup-content">
-                      <i class="fa-solid fa-check-circle text-green-500" style="font-size: 80px;"></i>
-                      <h2 class="mt-4 text-3xl font-bold text-green-600">Registration Successful!</h2>
+                        <i class="fa-solid fa-check-circle text-green-500" style="font-size: 80px;"></i>
+                        <h2 class="mt-4 text-3xl font-bold text-green-600">Registration Successful!</h2>
                     </div>
-                  </div>
+                </div>
+                
+                <div id="duplicatePopup" class="popup-overlay hidden">
+                    <div class="popup-content">
+                        <i class="fa-solid fa-exclamation-circle text-red-500" style="font-size: 80px;"></i>
+                        <h2 class="mt-4 text-3xl font-bold text-red-600">You are already registered!</h2>
+                    </div>
+                </div>
               </div>
         </section>
+        <script>
+         document.getElementById("registrationForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    
+    let formData = new FormData(this);
+    
+    let response = await fetch(this.action, {
+        method: "POST",
+        body: formData
+    });
 
+    let result = await response.json();
+    
+    if (result.status === "success") {
+        let popup = document.getElementById("successPopup");
+        popup.classList.remove("hidden"); // Show success popup
+        setTimeout(() => popup.classList.add("hidden"), 3000); // Hide after 3 seconds
+        this.reset();
+    } else if (result.status === "duplicate") {
+        let popup = document.getElementById("duplicatePopup");
+        popup.classList.remove("hidden"); // Show duplicate popup
+        setTimeout(() => popup.classList.add("hidden"), 3000); // Hide after 3 seconds
+    } else {
+        alert("Something went wrong. Please try again.");
+    }
+});
+            </script>
+            
+    
         <section id="contact" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">                <div class="text-center">
                     <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
